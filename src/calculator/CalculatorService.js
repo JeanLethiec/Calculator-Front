@@ -1,6 +1,7 @@
 export class CalculatorService {
-    constructor() {
+    constructor(httpClient) {
         this.host = "http://localhost:8081";
+        this.httpClient = httpClient || fetch;
     }
 
     saveOperations(operations) {
@@ -10,7 +11,7 @@ export class CalculatorService {
     }
 
     saveOperation(operation) {
-        return fetch(this.host + '/operation', {
+        return this.httpClient(this.host + '/operation', {
             method: 'POST',
             body: JSON.stringify({ value: operation }),
             headers: new Headers({
@@ -20,8 +21,8 @@ export class CalculatorService {
     }
 
     getHistory() {
-        return fetch(this.host + '/operation', {
+        return this.httpClient(this.host + '/operation', {
             method: 'GET',
-        });
+        }).then(data => data.json());
     }
 }

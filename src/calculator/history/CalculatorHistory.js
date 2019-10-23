@@ -5,8 +5,9 @@ export class CalculatorHistory extends React.Component {
     constructor(props) {
         super(props);
         this.state = { operations: ['Loading...'] };
-        this.props.service.getHistory()
-            .then(data => data.json())
+        this.props
+            .service
+            .getHistory()
             .then(data => {
                 this.setState({
                     operations: data.map(operation => operation.value).reverse(),

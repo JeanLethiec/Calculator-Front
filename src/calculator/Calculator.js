@@ -18,7 +18,7 @@ export class Calculator extends React.Component {
             if (lines[0] === '') {
                 return;
             }
-            if (this.checkCurrentExpressionIsEvaluable(lines[0])) {
+            if (this.checkExpressionIsEvaluable(lines[0])) {
                 lines[0] = `${lines[0]} = ${evaluate(lines[0])}`;
             } else {
                 lines[0] = `${lines[0]} = ERROR`;
@@ -30,7 +30,7 @@ export class Calculator extends React.Component {
         this.setState({ lines: lines.slice(0, 10) });
     }
 
-    checkCurrentExpressionIsEvaluable(expression) {
+    checkExpressionIsEvaluable(expression) {
         try {
             evaluate(expression);
             return true;
@@ -56,7 +56,7 @@ export class Calculator extends React.Component {
                 </div>
                 <div className="button save" onClick={this.save.bind(this)}>
                     Save
-        </div>
+                </div>
             </div>
         );
     }
