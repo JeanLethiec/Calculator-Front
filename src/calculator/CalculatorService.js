@@ -1,7 +1,7 @@
 export class CalculatorService {
     constructor(httpClient) {
         this.host = "http://localhost:8081";
-        this.httpClient = httpClient || fetch;
+        this.httpClient = httpClient || window.fetch.bind(window);
     }
 
     saveOperations(operations) {

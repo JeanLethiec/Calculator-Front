@@ -10,7 +10,7 @@ export class CalculatorHistory extends React.Component {
             .getHistory()
             .then(data => {
                 this.setState({
-                    operations: data.map(operation => operation.value).reverse(),
+                    operations: data.map(operation => operation.value),
                 });
             });
     }
