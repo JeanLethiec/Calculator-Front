@@ -26,21 +26,18 @@ export class Calculator extends React.Component {
     }
 
     executeCurrentOperation() {
-        let result = 'ERROR';
         const operation = this.state.currentOperation.join('');
         if (operation === '') {
             return;
         }
-        if (this.checkExpressionIsEvaluable(operation)) {
-            result = evaluate(operation);
-        }
+        const result = this.isExpressionEvaluable(operation) ? evaluate(operation) : 'ERROR';
         this.setState({
             operations: [`${operation} = ${result}`, ...this.state.operations].slice(0, 10),
             currentOperation: []
         });
     }
 
-    checkExpressionIsEvaluable(expression) {
+    isExpressionEvaluable(expression) {
         try {
             evaluate(expression);
             return true;
