@@ -5,15 +5,8 @@ export class CalculatorHistory extends React.Component {
     constructor(props) {
         super(props);
         this.state = { operations: ['Loading...'] };
-        this.props
-            .service
-            .getHistory()
-            .then(data => {
-                this.setState({
-                    operations: data.map(operation => operation.value),
-                });
-            });
     }
+
     render() {
         return (
             <div className="history">
@@ -22,5 +15,16 @@ export class CalculatorHistory extends React.Component {
                 </div>
             </div>
         );
+    }
+
+    componentDidMount() {
+        this.props
+            .service
+            .getHistory()
+            .then(data => {
+                this.setState({
+                    operations: data.map(operation => operation.value),
+                });
+            });
     }
 }
