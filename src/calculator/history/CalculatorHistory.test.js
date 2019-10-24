@@ -10,7 +10,7 @@ service.getHistory = jest.fn(() => {
 });
 
 describe("CalculatorHistory Component", () => {
-    test("Should ask for previous operations during initialization", () => {
+    test("should ask for previous operations during initialization", () => {
         // Arrange
         create(<CalculatorHistory service={service} />);
 
@@ -18,7 +18,7 @@ describe("CalculatorHistory Component", () => {
         expect(service.getHistory).toBeCalledTimes(1);
     });
 
-    test("Should display Loading message during initialization", () => {
+    test("should display Loading message during initialization", () => {
         // Arrange
         const history = create(<CalculatorHistory service={service} />);
         const instance = history.root;

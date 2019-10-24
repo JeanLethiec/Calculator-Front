@@ -4,7 +4,7 @@ import { CalculatorScreen } from './CalculatorScreen';
 
 
 describe("CalculatorScreen Component", () => {
-    test('Should be consistent versus Snapshot', () => {
+    test('should be consistent versus Snapshot', () => {
         // Arrange
         const screen = create(<CalculatorScreen operations={['1', '2', '3']} />);
 
@@ -12,7 +12,7 @@ describe("CalculatorScreen Component", () => {
         expect(screen.toJSON()).toMatchSnapshot();
     });
 
-    test("Should initialize correct lines", () => {
+    test("should initialize correct lines", () => {
         // Arrange
         const screen = create(<CalculatorScreen operations={['1', '2', '3']} />);
         const instance = screen.root;

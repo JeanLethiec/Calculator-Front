@@ -18,13 +18,13 @@ describe('Calculator service', () => {
         service = new CalculatorService(mockFetch);
     })
 
-    test('Should be initialized with an host', () => {
+    test('should be initialized with an host', () => {
         const service = new CalculatorService();
 
         expect(service.host).toBeDefined();
     })
 
-    test('Operations history retrieval', () => {
+    test('should ask for operations history correctly', () => {
         // Act
         service.getHistory();
 
@@ -32,7 +32,7 @@ describe('Calculator service', () => {
         expect(mockFetch).toHaveBeenCalledWith("http://localhost:8081/operation", { method: "GET" });
     })
 
-    test('Operation saving', () => {
+    test('should ask for single operation saving correctly', () => {
         // Act
         service.saveOperation("1");
 
@@ -46,7 +46,7 @@ describe('Calculator service', () => {
         });
     })
 
-    test('Multiple operations saving', () => {
+    test('should ask for multiple operations saving correctly', () => {
         // Act
         service.saveOperations(["1", "2"]);
 

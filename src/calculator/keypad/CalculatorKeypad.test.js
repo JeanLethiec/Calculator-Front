@@ -4,7 +4,7 @@ import { CalculatorKeypad } from './CalculatorKeypad';
 
 
 describe("CalculatorKeypad Component", () => {
-    test('Should be consistent versus Snapshot', () => {
+    test('should be consistent versus Snapshot', () => {
         // Arrange
         const keypad = create(<CalculatorKeypad onClick={() => { }} />);
 
@@ -12,7 +12,7 @@ describe("CalculatorKeypad Component", () => {
         expect(keypad.toJSON()).toMatchSnapshot();
     });
 
-    test("Should initialize correct keys", () => {
+    test("should initialize correct keys", () => {
         // Arrange
         const keypad = create(<CalculatorKeypad onClick={() => { }} />);
         const instance = keypad.root;
@@ -26,7 +26,7 @@ describe("CalculatorKeypad Component", () => {
         expect(specialKeys.length).toBe(4);
     });
 
-    test("Should call onClick() when keys are clicked", () => {
+    test("should trigger correct event when keys are clicked", () => {
         // Arrange
         const mockOnClick = jest.fn(() => { });
 
