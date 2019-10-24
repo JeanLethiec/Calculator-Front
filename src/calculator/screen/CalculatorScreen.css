@@ -1,0 +1,14 @@
+.calculator-screen {
+    height: 220px;
+    background: rgb(0, 0, 0);
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    overflow: auto;
+  }
+  
+  .outputLine {
+    color: white;
+    min-height: 20px;
+    word-break: break-all;
+    background: black;
+  }

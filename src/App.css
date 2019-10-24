@@ -1,68 +1,3 @@
-.key {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 22px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 60px;
-    margin-right: 2px;
-    margin-top: 2px;
-    padding: 0;
-    text-align: center;
-    width: 60px;
-    border-radius: 8px;
-  }
-  
-  .special.key {
-    background: #d1e1e8;
-  }
-  
-  .equals.key {
-    background: #b5e2f7;
-  }
-  
-  .key:focus {
-    outline: none;
-  }
-  
-  .key:hover {
-    background: rgb(228, 228, 228);
-  }
-  
-  .input-row:after {
-    clear: both;
-    content: '';
-    display: table;
-  }
-  
-  .calculator-input {
-    margin-bottom: 10px;
-  }
-  
-  .calculator-screen {
-    height: 220px;
-    background: rgb(0, 0, 0);
-    padding: 5px 10px 5px 10px;
-    border-radius: 10px;
-    overflow: auto;
-  }
-  
-  .outputLine {
-    color: white;
-    min-height: 20px;
-    word-break: break-all;
-    background: black;
-  }
-  
-  .calculator {
-    width: 248px;
-    border: 1px solid grey;
-    border-radius: 10px;
-    padding: 10px;
-    background: #ebf7f7;
-  }
-  
   button {
     display: block;
     border-radius: 10px;
@@ -90,12 +25,6 @@
   
   .button:hover {
     background: rgb(228, 228, 228);
-  }
-  
-  .save {
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 10px;
   }
   
   .toggle-history {

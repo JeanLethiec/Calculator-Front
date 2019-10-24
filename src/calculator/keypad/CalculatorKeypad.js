@@ -1,4 +1,5 @@
 import React from 'react';
+import './CalculatorKeypad.css';
 
 export class CalculatorKeypad extends React.Component {
     renderKey(value, ...classNames) {
@@ -12,7 +13,7 @@ export class CalculatorKeypad extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="calculator-input">
                 <div className="input-row">
                     {this.renderKey('7')}
                     {this.renderKey('8')}

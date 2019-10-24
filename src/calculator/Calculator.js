@@ -2,6 +2,7 @@ import React from 'react';
 import { evaluate } from 'mathjs';
 import { CalculatorKeypad } from './keypad/CalculatorKeypad';
 import { CalculatorScreen } from './screen/CalculatorScreen';
+import './Calculator.css';
 
 export class Calculator extends React.Component {
     constructor(props) {
@@ -53,14 +54,8 @@ export class Calculator extends React.Component {
     render() {
         return (
             <div className="calculator">
-                <div className="calculator-input">
-                    <CalculatorKeypad
-                        onClick={this.handleClick.bind(this)}
-                    />
-                </div>
-                <div className="calculator-screen">
-                    <CalculatorScreen operations={[this.state.currentOperation.join(''), ...this.state.operations]} />
-                </div>
+                <CalculatorKeypad onClick={this.handleClick.bind(this)} />
+                <CalculatorScreen operations={[this.state.currentOperation.join(''), ...this.state.operations]} />
                 <div className="button save" onClick={this.save.bind(this)}>
                     Save
                 </div>

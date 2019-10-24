@@ -10,9 +10,7 @@ export class CalculatorHistory extends React.Component {
     render() {
         return (
             <div className="history">
-                <div className="calculator-screen">
-                    <CalculatorScreen operations={this.state.operations} />
-                </div>
+                <CalculatorScreen operations={this.state.operations} />
             </div>
         );
     }
