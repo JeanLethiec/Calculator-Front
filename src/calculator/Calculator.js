@@ -7,27 +7,37 @@ export class Calculator extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            lines: [''],
-        };
+            operations: [],
+            currentOperation: []
+        }
     }
 
     handleClick(value) {
-        const lines = this.state.lines.slice();
-
         if (value === '=') {
-            if (lines[0] === '') {
-                return;
-            }
-            if (this.checkExpressionIsEvaluable(lines[0])) {
-                lines[0] = `${lines[0]} = ${evaluate(lines[0])}`;
-            } else {
-                lines[0] = `${lines[0]} = ERROR`;
-            }
-            lines.unshift('');
+            this.executeCurrentOperation()
         } else {
-            lines[0] += value;
+            this.modifyCurrentOperation(value);
         }
-        this.setState({ lines: lines.slice(0, 10) });
+    }
+
+    modifyCurrentOperation(value) {
+        const currentOperation = this.state.currentOperation.concat(value);
+        this.setState({ currentOperation });
+    }
+
+    executeCurrentOperation() {
+        let result = 'ERROR';
+        const operation = this.state.currentOperation.join('');
+        if (operation === '') {
+            return;
+        }
+        if (this.checkExpressionIsEvaluable(operation)) {
+            result = evaluate(operation);
+        }
+        this.setState({
+            operations: [`${operation} = ${result}`, ...this.state.operations].slice(0, 10),
+            currentOperation: []
+        });
     }
 
     checkExpressionIsEvaluable(expression) {
@@ -40,7 +50,7 @@ export class Calculator extends React.Component {
     }
 
     save() {
-        this.props.service.saveOperations(this.state.lines.slice(1));
+        this.props.service.saveOperations(this.state.operations);
     }
 
     render() {
@@ -52,7 +62,7 @@ export class Calculator extends React.Component {
                     />
                 </div>
                 <div className="calculator-screen">
-                    <CalculatorScreen lines={this.state.lines} />
+                    <CalculatorScreen operations={[this.state.currentOperation.join(''), ...this.state.operations]} />
                 </div>
                 <div className="button save" onClick={this.save.bind(this)}>
                     Save

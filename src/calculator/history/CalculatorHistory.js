@@ -18,7 +18,7 @@ export class CalculatorHistory extends React.Component {
         return (
             <div className="history">
                 <div className="calculator-screen">
-                    <CalculatorScreen lines={this.state.operations} />
+                    <CalculatorScreen operations={this.state.operations} />
                 </div>
             </div>
         );

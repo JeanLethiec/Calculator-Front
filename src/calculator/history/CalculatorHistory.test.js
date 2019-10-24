@@ -28,8 +28,4 @@ describe("CalculatorHistory Component", () => {
         expect(outputLines.length).toBe(1);
         expect(outputLines[0].props.children).toBe("Loading...");
     })
-
-    test("Should send retrieved operations to CalculatorScreen to display", () => {
-
-    });
 });
